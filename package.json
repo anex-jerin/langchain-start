@@ -6,13 +6,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev":"nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "langchain": "^0.0.71"
+    "langchain": "^0.0.71",
+    "puppeteer": "^19.11.1"
   }
 }

@@ -1,6 +1,8 @@
 import { OpenAI } from 'langchain/llms/openai';
 import { PromptTemplate } from 'langchain/prompts';
 import { LLMChain } from 'langchain/chains';
+import { PineconeStore } from 'langchain/vectorstores/pinecone';
+
 import { config } from 'dotenv';
 config();
 
