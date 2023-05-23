@@ -1,7 +1,9 @@
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
-import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { CheerioWebBaseLoader } from 'langchain/document_loaders/web/cheerio';
+import { PineconeClient } from '@pinecone-database/pinecone';
+import { PineconeStore } from 'langchain/vectorstores/pinecone';
+import { Document } from 'langchain/document';
 import { config } from 'dotenv';
 config();
 
@@ -23,11 +25,26 @@ const textSplitter = new RecursiveCharacterTextSplitter({
 
 const docs = await textSplitter.splitDocuments(rawDocs);
 
-const vectorStore = await MemoryVectorStore.fromDocuments(
+// console.log(docs)
+
+
+
+const client = new PineconeClient();
+await client.init({
+  apiKey: process.env.PINECONE_API_KEY,
+  environment: process.env.PINECONE_ENVIRONMENT,
+});
+const pineconeIndex = client.Index(process.env.PINECONE_INDEX); 
+
+
+await PineconeStore.fromDocuments(
   docs,
   new OpenAIEmbeddings({
     openAIApiKey: OPENAI_API_KEY,
-  })
+  }),
+  {
+    pineconeIndex,
+  }
 );
 
-console.log(vectorStore);
+
