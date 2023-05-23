@@ -19,10 +19,10 @@ Language Model Application based on Open AI with a custom database with langChai
 
 ## Reference
 
-[Langchain](https://js.langchain.com/docs)
-[OpenAi](https://platform.openai.com/overview)
-[Pinecone](https://docs.pinecone.io/docs/overview)
-[Cheerio](https://cheerio.js.org/docs/intro)
+1. [Langchain](https://js.langchain.com/docs)
+2. [OpenAi](https://platform.openai.com/overview)
+3. [Pinecone](https://docs.pinecone.io/docs/overview)
+4. [Cheerio](https://cheerio.js.org/docs/intro)
 
 
 
