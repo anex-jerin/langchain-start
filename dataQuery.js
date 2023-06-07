@@ -31,6 +31,6 @@ const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
   k: 1,
   returnSourceDocuments: false,
 });
-const response = await chain.call({ query: '' });
+const response = await chain.call({ query: 'what is central sector scheme?' });
 console.log(response);
 
